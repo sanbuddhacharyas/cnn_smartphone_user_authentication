@@ -56,4 +56,9 @@ def save_data(data, save_path):
     with open(save_path, 'wb') as f:
         dump(data, f)
 
+
+def load_data(save_path):
+    with open(save_path, 'rb') as f:
+        return load(f)
+
     
