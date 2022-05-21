@@ -166,7 +166,7 @@ if __name__ == '__main__':
     parser.add_argument('--raw_data_path', type = str, help='Root raw dataset path', default='../dataset/raw_data')
     parser.add_argument('--data_processed_path', type = str, help='Root data processed path', default='../dataset/data_processed')
     parser.add_argument('--pre_process_feature_path', type=str, help='Path to the pre-process rest features', default='../weights/')
-    parser.add_argument('--cnn_training_datset_path', type = str, help='Root path for cnn training datset', default='../dataset/cnn_training_dataset')
+    parser.add_argument('--cnn_training_dataset_path', type = str, help='Root path for cnn training datset', default='../dataset/cnn_training_dataset')
     parser.add_argument('--segment_size', type = int, help = 'Number of segment per window', default = 200)
     parser.add_argument("--pre_process_raw_data", action='store_const', const=True, default=False)
 
