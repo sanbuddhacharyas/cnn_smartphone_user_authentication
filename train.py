@@ -5,7 +5,7 @@ from models.cnn_model import cnn
 import argparse
 import numpy as np
 from sklearn.metrics import accuracy_score
-from utils.load_dataset import load_dataset
+from utils.load_dataset import load_cnn_training_dataset
 
 
 if __name__ == '__main__':
@@ -16,17 +16,17 @@ if __name__ == '__main__':
     parser.add_argument('--lr', type=str, help = 'Learning rate', default=0.001)
     parser.add_argument('--num_filters', type=str, help = 'number of filters to use', default=64)
     parser.add_argument('--epoch', type = int, help="Number of epoch to run", default=500)
-    parser.add_argument('--dataset_path', type = str, help="Root path of your dataset", default='./dataset')
+    parser.add_argument('--dataset_path', type = str, help="Root path of your dataset", default='./dataset/cnn_training_dataset')
 
     args = parser.parse_args()
 
-    print(f"Legitimate_id=>{args.legitimate_id} | Kernel_size=>{args.kernel_size} | Window_size=>{args.window_size}")
+    print(f"Legitimate_id=>{args.id} | Kernel_size=>{args.kernel_size} | Window_size=>{args.window_size}")
 
     # Load dataset
-    X_train     = load_dataset(os.path.join(args.dataset_path, args.id, 'X_train.csv'))
-    Y_train     = load_dataset(os.path.join(args.dataset_path, args.id, 'Y_train.csv'))
-    X_test      = load_dataset(os.path.join(args.dataset_path, args.id, 'X_test.csv'))
-    Y_test      = load_dataset(os.path.join(args.dataset_path, args.id, 'Y_test.csv'))
+    X_train     = load_cnn_training_dataset(os.path.join(args.dataset_path, args.id, 'X_train.csv'))
+    Y_train     = load_cnn_training_dataset(os.path.join(args.dataset_path, args.id, 'Y_train.csv'))
+    X_test      = load_cnn_training_dataset(os.path.join(args.dataset_path, args.id, 'X_test.csv'))
+    Y_test      = load_cnn_training_dataset(os.path.join(args.dataset_path, args.id, 'Y_test.csv'))
 
     # Create CNN model
     cnn_model        = cnn(num_filters = args.num_filters, kernel_size = args.kernel_size, num_sample=args.window_size, learning_rate = args.lr)

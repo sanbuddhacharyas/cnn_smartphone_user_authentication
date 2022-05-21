@@ -1,6 +1,6 @@
 import tensorflow.keras as keras   
 from  tensorflow.keras.layers import Conv1D, GlobalMaxPooling1D, Input, BatchNormalization, ReLU, Dense, Dropout
-import tensorflow.compat.v1 as tf
+import tensorflow as tf
 import os
 
 class CustomCallback(keras.callbacks.Callback):
@@ -66,9 +66,9 @@ class cnn:
     
         return model
 
-    def train(self, train_x, train_y, X_test_data, Y_test_data, id, resume_checkpoint = False, epochs = 500):
+    def train(self, train_x, train_y, X_test, Y_test, id, resume_checkpoint = False, epochs = 500):
         
-        path     = os.getcwd() + '/'
+        path     = os.getcwd() + '/weights'
         filename = str(id)+'/Models/'
         checkpoint_path = path + filename + "cp.ckpt"
 
@@ -76,7 +76,7 @@ class cnn:
  
         cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path , save_weights_only=True, verbose=1)
 
-        self.model.compile(loss = 'binary_crossentropy', optimizer= tf.train.AdamOptimizer(learning_rate = self.learning_rate),  metrics=['accuracy'])
+        self.model.compile(loss = 'binary_crossentropy', optimizer= tf.optimizers.Adam(learning_rate = self.learning_rate),  metrics=['accuracy'])
         
         if resume_checkpoint:
             try:
@@ -85,6 +85,6 @@ class cnn:
             except:
                 print("Checkpoint Not available")
 
-        self.model.fit(train_x, train_y,  epochs = epochs, validation_data=(X_test_data, Y_test_data), batch_size = 32, verbose = 1, callbacks = [cp_callback])
+        self.model.fit(train_x, train_y,  epochs = epochs, validation_data=(X_test, Y_test), batch_size = 32, verbose = 1, callbacks = [cp_callback])
         
         return self.model
