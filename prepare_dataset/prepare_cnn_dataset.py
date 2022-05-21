@@ -39,7 +39,6 @@ def append_data(raw_data_path, data_processed_path, pre_process_feature_path, se
         path_gyro = os.path.join(id_path, 'Gyro.csv')
         id        = id_path.split('/')[-1]
 
-    
         recent_data       = import_raw_dataset(path_acc, path_gyro)
         recent_data       = recent_data.sort_values('Time')
     
@@ -125,9 +124,11 @@ def prepare_training_data(legitimate_id, path):
         legitimate_data         = load(f)
 
     legitimate_data['User'] = 1
+
     temp   = legitimate_data
     length = legitimate_data.shape[0]
     rand   = np.random.RandomState(seed=20)
+
     if len(intruders_id) > 20:
         intruders_id = rand.choice(intruders_id, 20)
 
