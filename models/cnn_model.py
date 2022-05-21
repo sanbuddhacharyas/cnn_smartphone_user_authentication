@@ -66,7 +66,7 @@ class cnn:
     
         return model
 
-    def train(self, train_x, train_y, X_test_data, Y_test_data, id, path, fs, resume_checkpoint = False, epochs = 500):
+    def train(self, train_x, train_y, X_test_data, Y_test_data, id, resume_checkpoint = False, epochs = 500):
         
         path     = os.getcwd() + '/'
         filename = str(id)+'/Models/'
