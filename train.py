@@ -37,6 +37,8 @@ if __name__ == '__main__':
     # Evaluate accuracy on testing data
     pred             = classifer.predict(X_test)
     pred             = pred>0.8
+
+    print(pred)
     accuracy         = accuracy_score(Y_test.astype(np.int8), pred.astype(np.int8))
 
     print(f"Accuracy=>{accuracy}")

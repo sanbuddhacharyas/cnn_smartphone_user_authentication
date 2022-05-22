@@ -48,6 +48,7 @@ def append_data(raw_data_path, data_processed_path, pre_process_feature_path, se
         with open("logs.txt", "a") as f:
             f.write(f"{datetime.datetime.utcnow()} | Importing data==>{id} \n")
         
+        print(id_path)
         for seg in tqdm(range(num_segment)):
             start_idx = seg * segment_size
             end_idx   = start_idx  + segment_size 
@@ -135,19 +136,17 @@ def prepare_training_data(legitimate_id, path):
     num_segment = np.floor(length / len(intruders_id)).astype(np.int32)
 
     for int_id in tqdm(intruders_id):
-        try:
-            with open(os.path.join(path, str(int_id),"data_fil.csv", 'rb')) as f:
-                intruder_data         = load(f)
+        
+        with open(os.path.join(path, str(int_id),"data_fil.csv"), 'rb') as f:
+            intruder_data         = load(f)
 
-            intruder_data['User'] = 0
-            intr_shape            = intruder_data.shape[0]
-            start_x = rand.choice(range(intr_shape-num_segment - 1))
-            end_x   = start_x + num_segment
-            intruder_data = intruder_data[start_x : end_x]
-            temp = pd.concat([temp, intruder_data], axis = 0)
-        except:
-            pass
-
+        intruder_data['User'] = 0
+        intr_shape            = intruder_data.shape[0]
+        start_x = rand.choice(range(intr_shape-num_segment - 1))
+        end_x   = start_x + num_segment
+        intruder_data = intruder_data[start_x : end_x]
+        temp = pd.concat([temp, intruder_data], axis = 0)
+       
     train   = shuffle(temp)
     drop    = train['X_data'].to_list()
     X       = np.stack(drop, axis = 0)
