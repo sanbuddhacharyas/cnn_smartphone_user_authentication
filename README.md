@@ -9,7 +9,7 @@
 ### Prepare training dataset for REST filter model
 ```cd prepare_dataset```
 
-You can directly download our dataset [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherinempeterson.com/)
+You can directly download our dataset [rest_data](https://drive.google.com/file/d/1L0k4S51m0QreSPeh8UvDZjrO-79uN5cH/view?usp=sharing)
 or Create your dataset with our app.  
 a. Create dataset with app:  
     Collect REST data:  
@@ -87,7 +87,21 @@ This code creates *dataset/rest_data/train* folder.
 python  prepare_rest_filter_dataset.py
 ```
 ### Train REST filter model
-You can directly download the models: [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherinempeterson.com/)
+You can directly download the models: [Rest](https://drive.google.com/file/d/1_CLDVKVbcZkcqCSNuQfCmcQgQlfw8PKY/view?usp=sharing)
+
+```bash
+Model directory structure
+weights
+└── Rest
+    ├── Features
+    │   ├── coorel_features.txt
+    │   ├── selector.joblib
+    │   └── std_scaler.joblib
+    └── Model
+        └── model.sav
+
+
+```
 
 To train the model, run the following command.
 ```bash
@@ -101,15 +115,15 @@ The *model.sav , coorel_features.txt, selector.joblib and  std_scaler.joblib* ar
 
 
 ### Prepare training dataset for CNN model:
-You can directly download our dataset for testing and can assign as intruder 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherinempeterson.com/)
+You can directly download our dataset [raw_data](https://drive.google.com/file/d/1_mqModB8Q5n_EKbUrjJgrgqp8iKKI0Y6/view?usp=sharing), [data_processed](https://drive.google.com/file/d/1TGAU-u8Sko5nZIeRKSvoY88OUiJuE2D8/view?usp=sharing) and [cnn_training_dataset](https://drive.google.com/file/d/1WahW47_2_7v2EuwOUZGt61J3W2Lu9gnl/view?usp=sharing)for testing and can assign as intruder 
+
 
 Create dataset with app:
 &emsp; Start the app, it will automatically collects the data when you are active.  
 &emsp; copy the Accel.csv and Gyro.csv in the following directory structure
 
     Directory structure:
-    dataset/
+    dataset
     └── raw_data
         ├── 37905f086c46d416
         │   ├── Accel.csv
