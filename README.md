@@ -10,10 +10,14 @@
 ```cd prepare_dataset```
 
 You can directly download our dataset [rest_data](https://drive.google.com/file/d/1L0k4S51m0QreSPeh8UvDZjrO-79uN5cH/view?usp=sharing)
-or Create your dataset with our app.  
+or Create your dataset with our [app](https://drive.google.com/file/d/14MLhiIHaFmJIiJlIwK3JtkvA60hOCj4G/view?usp=sharing).  
+![image](https://drive.google.com/uc?export=view&id=1dlXuthgsF9G6XTcSUdqyt9HKLyf90jR6)
+
+*Note: accel.csv and gyro.csv is store at Android/data/com.example.user_auth/files*   
+*Rename accel.csv -> Accel.csv and gyro.csv->Gyro.csv.*   
 a. Create dataset with app:  
     Collect REST data:  
-    &emsp; Place your phone in table and collect the data untill it reaches 5MB and change the position  
+    &emsp; Place your phone in table and click *Start* to collect the data untill it reaches 5MB and change the position  
         (1) Upright, 2) Downface, 3) Upface) make REST folder maintain the metioned directory structure  
     \
     Collect MOTION data:  
@@ -115,10 +119,10 @@ The *model.sav , coorel_features.txt, selector.joblib and  std_scaler.joblib* ar
 
 
 ### Prepare training dataset for CNN model:
-You can directly download our dataset [raw_data](https://drive.google.com/file/d/1_mqModB8Q5n_EKbUrjJgrgqp8iKKI0Y6/view?usp=sharing), [data_processed](https://drive.google.com/file/d/1TGAU-u8Sko5nZIeRKSvoY88OUiJuE2D8/view?usp=sharing) and [cnn_training_dataset](https://drive.google.com/file/d/1WahW47_2_7v2EuwOUZGt61J3W2Lu9gnl/view?usp=sharing)for testing and can assign as intruder 
+You can directly download our dataset [raw_data](https://drive.google.com/file/d/1_mqModB8Q5n_EKbUrjJgrgqp8iKKI0Y6/view?usp=sharing), [data_processed](https://drive.google.com/file/d/1TGAU-u8Sko5nZIeRKSvoY88OUiJuE2D8/view?usp=sharing) and [cnn_training_dataset](https://drive.google.com/file/d/1WahW47_2_7v2EuwOUZGt61J3W2Lu9gnl/view?usp=sharing) for testing and can assign as intruder 
 
 
-Create dataset with app:
+Create dataset with app:  
 &emsp; Start the app, it will automatically collects the data when you are active.  
 &emsp; copy the Accel.csv and Gyro.csv in the following directory structure
 
