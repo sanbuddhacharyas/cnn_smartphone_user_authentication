@@ -69,12 +69,11 @@ class cnn:
     def train(self, train_x, train_y, X_test, Y_test, id, resume_checkpoint = False, epochs = 500):
         
         path     = os.getcwd() + '/weights'
-        filename = str(id)+'/Models/'
-        checkpoint_path = path + filename + "cp.ckpt"
-
+        filename = '/'+str(id)+'/Models/'
+        checkpoint_path = path + filename + "cp.h5"
         self.model = self.create_model()
  
-        cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path , save_weights_only=True, verbose=1)
+        cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path , save_weights_only=False, verbose=1)
 
         self.model.compile(loss = 'binary_crossentropy', optimizer= tf.optimizers.Adam(learning_rate = self.learning_rate),  metrics=['accuracy'])
         

@@ -25,6 +25,7 @@ if __name__=='__main__':
     classifier.fit(X_train, Y_train)
     pred   = classifier.predict(X_test)
 
+    print(pred)
     print(accuracy_score(Y_test, pred))
     report = classification_report(Y_test, pred)
     print(report)

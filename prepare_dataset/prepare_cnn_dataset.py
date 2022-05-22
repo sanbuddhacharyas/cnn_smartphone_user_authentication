@@ -139,10 +139,6 @@ def prepare_training_data(legitimate_id, path):
             with open(os.path.join(path, str(int_id),"data_fil.csv", 'rb')) as f:
                 intruder_data         = load(f)
 
-            # os.makedirs(filename_path+'/'+str(int_id)+'/', exist_ok=True)
-            # with open(filename_path+'/'+str(int_id)+'/'+'data_fil.csv', 'wb') as f:
-            #     dump(intruder_data, f)
-
             intruder_data['User'] = 0
             intr_shape            = intruder_data.shape[0]
             start_x = rand.choice(range(intr_shape-num_segment - 1))
@@ -167,7 +163,7 @@ if __name__ == '__main__':
     parser.add_argument('--raw_data_path', type = str, help='Root raw dataset path', default='../dataset/raw_data')
     parser.add_argument('--data_processed_path', type = str, help='Root data processed path', default='../dataset/data_processed')
     parser.add_argument('--pre_process_feature_path', type=str, help='Path to the pre-process rest features', default='../weights/')
-    parser.add_argument('--cnn_training_dataset_path', type = str, help='Root path for cnn training datset', default='../dataset/cnn_training_dataset')
+    parser.add_argument('--cnn_training_datset_path', type = str, help='Root path for cnn training datset', default='../dataset/cnn_training_dataset')
     parser.add_argument('--segment_size', type = int, help = 'Number of segment per window', default = 200)
     parser.add_argument("--pre_process_raw_data", action='store_const', const=True, default=False)
 

@@ -6,3 +6,19 @@
     accuracy                           0.94      1200
    macro avg       0.95      0.94      0.94      1200
 weighted avg       0.95      0.94      0.94      1200
+              precision    recall  f1-score   support
+
+      MOTION       1.00      0.88      0.94       600
+        REST       0.89      1.00      0.94       600
+
+    accuracy                           0.94      1200
+   macro avg       0.95      0.94      0.94      1200
+weighted avg       0.95      0.94      0.94      1200
+              precision    recall  f1-score   support
+
+      MOTION       1.00      0.88      0.94       600
+        REST       0.89      1.00      0.94       600
+
+    accuracy                           0.94      1200
+   macro avg       0.95      0.94      0.94      1200
+weighted avg       0.95      0.94      0.94      1200

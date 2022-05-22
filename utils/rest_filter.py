@@ -105,5 +105,8 @@ def filter_rest(input, segment_size, pre_process_feature_path):
     rest_features     = extract_rest_features(input, segment_size)
     X_test            = pre_processing_rest_features(rest_features, pre_process_feature_path)
     out               = classifier.predict(X_test)
+    if out=='MOTION':
+        return False
 
-    return out
+    else:
+        return True
