@@ -1,11 +1,8 @@
 import os
-import tensorflow.keras as keras 
-import tensorflow.compat.v1 as tf
 from models.cnn_model import cnn
 import argparse
-import numpy as np
-from sklearn.metrics import accuracy_score
 from utils.load_dataset import load_cnn_training_dataset
+from utils.compute_metrics import find_optimal_threhold
 
 
 if __name__ == '__main__':
@@ -36,9 +33,5 @@ if __name__ == '__main__':
     
     # Evaluate accuracy on testing data
     pred             = classifer.predict(X_test)
-    pred             = pred>0.8
 
-    print(pred)
-    accuracy         = accuracy_score(Y_test.astype(np.int8), pred.astype(np.int8))
-
-    print(f"Accuracy=>{accuracy}")
+    find_optimal_threhold(Y_test, pred)

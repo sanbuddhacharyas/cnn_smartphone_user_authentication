@@ -165,6 +165,7 @@ if __name__ == '__main__':
     parser.add_argument('--cnn_training_datset_path', type = str, help='Root path for cnn training datset', default='../dataset/cnn_training_dataset')
     parser.add_argument('--segment_size', type = int, help = 'Number of segment per window', default = 200)
     parser.add_argument("--pre_process_raw_data", action='store_const', const=True, default=False)
+    parser.add_argument("--test_size", type=float, default=0.2)
 
     args = parser.parse_args()
     
@@ -172,7 +173,7 @@ if __name__ == '__main__':
         append_data(args.raw_data_path, args.data_processed_path, args.pre_process_feature_path, args.segment_size)
 
     X , Y = prepare_training_data(args.id, args.data_processed_path)
-    X_train, X_test, Y_train, Y_test = train_test_split(X,  Y, test_size=0.2, random_state=42,stratify=Y)
+    X_train, X_test, Y_train, Y_test = train_test_split(X,  Y, test_size=args.test_size, random_state=42,stratify=Y)
     save_path = os.path.join(args.cnn_training_datset_path,str(args.id))
     save_data(X_train, save_path+'/X_train.csv')
     save_data(X_test, save_path+'/X_test.csv')

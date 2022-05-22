@@ -129,14 +129,39 @@ Run the following code to prepare CNN training dataset
 cd prepare_dataset
 python prepare_cnn_dataset.py --id 'your_id_name' --pre_process_raw_data
 ```
+It takes 1 - 2 hour according to the size of dataset.  
+
 This code creates data_processed and cnn_training_dataset folder at *dataset*  
 where data_processed contains pre-processed data for each users and  the cnn_training_dataset  
-contains the training dataset for the user (--id 'your_id_name').  
+contains the training dataset for the user (--id 'your_id_name') and all the users are intruder for  
+'your_id_name'.
+
+Once the raw data is pre-processed for all the available users. You don't need to pass --pre_process_raw_data.  
+you can directly use following code
+```bash
+cd prepare_dataset
+python prepare_cnn_dataset.py --id 'your_id_name'
+```  
 
 2. For CNN model
 
 ### Train the model
 To train the model, run the following command.
-
+```bash
     python train.py --id user_id --kernel_size kernel_size --window_size window_size --lr learning_rate --num_filters number_of_filters_to_use --epoch number_of_epochs_to_train --dataset_path root_path_of_the_dataset
-    
+```
+Example:
+```bash
+    python train.py --id 37905f086c46d416 --epoch 50
+```
+
+### Test your model
+You can prepare testing dataset with the above method
+To run the testing code:
+```bash
+python test.py --id 'your_id' --X 'dataset path' --Y 'dataset label path' --model_path 'Trained model checkpoint path (.h5)'
+```
+Example:
+```bash
+python test.py --id 37905f086c46d416 --X ./dataset/cnn_training_dataset/37905f086c46d416/X_test.csv --Y ./dataset/cnn_training_dataset/37905f086c46d416/Y_test.csv --model_path ./weights/37905f086c46d416/Models/cp.h5
+```
