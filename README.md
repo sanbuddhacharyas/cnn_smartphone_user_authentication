@@ -1,4 +1,4 @@
-This repository includes the code for the published paper ```CNN-Based Continuous Authentication of Smartphones Using Mobile Sensors.``` It features the model architecture, data collection tools, and methods for feature extraction. <br>
+This repository includes the code for the published paper [```CNN-Based Continuous Authentication of Smartphones Using Mobile Sensors.```](https://www.ijirae.com/volumes/Vol9/iss-08/37.AUAE10083.pdf) It features the model architecture, data collection tools, and methods for feature extraction. <br>
 [Paper Link](https://www.ijirae.com/volumes/Vol9/iss-08/37.AUAE10083.pdf)
 
 ### Installation instructions
