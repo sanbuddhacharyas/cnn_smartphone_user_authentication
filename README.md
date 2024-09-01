@@ -1,3 +1,6 @@
+This repository includes the code for the published paper ```CNN-Based Continuous Authentication of Smartphones Using Mobile Sensors.``` It features the model architecture, data collection tools, and methods for feature extraction. <br>
+[Paper Link](https://www.ijirae.com/volumes/Vol9/iss-08/37.AUAE10083.pdf)
+
 ### Installation instructions
 1. Create a new conda environment
     ```conda create -n userauth python=3.8```
